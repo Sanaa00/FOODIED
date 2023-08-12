@@ -7,11 +7,15 @@ import chef3 from "../../public/images/chef3.png"
 import image2 from "../../public/images/homeimage2.png"
 import { services,chefs } from './page.utility'
 import Footer from './component/Footer'
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import { store } from '../redux/store'
+import { Provider } from 'react-redux';
 export default function Home() {
   return (
-    <main className="lg:mx-36">
-      <section className=' flex '>
+    // <Provider store={store}>
+      <main className="lg:mx-36">
+      <section className=' flex pt-16 '>
         <div className='flex flex-col items-start w-1/2 mt-16'>
           <span className='border font-semibold border-black text-black rounded-full px-4 text-lg py-1'>Hungry?</span>
           <p className='text-black font-bold text-6xl mt-10 leading-[5rem]'>JUST COME TO FOODIED & ORDER</p>
@@ -59,5 +63,7 @@ export default function Home() {
       </section>
     
     </main>
+    // </Provider>
+   
   )
 }

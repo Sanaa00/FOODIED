@@ -2,7 +2,7 @@
      "dishes":[
           {
                "id":1,
-               "name":"Hamburgerrrrrrrrrrr",
+               "name":"Hamburger",
                "image":"https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80",
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
