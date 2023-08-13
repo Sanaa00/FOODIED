@@ -7,7 +7,7 @@ const initialState:OrderSlice= {
           order:[]
      },
     
-     totalPrice:0
+
 }
 
 
@@ -35,6 +35,13 @@ export const orderSlice = createSlice({
      
      
 })
+// export const selectTotalPrice = (state:Dishes[]) => {
+//   return state?.order?.order?.reduce((total:number, product:Dishes) => {
+//     const productPrice = product?.price; // Replace with your actual price field
+//     const productQuantity = 1; // Replace with your actual quantity field
+//     return total + productPrice * productQuantity;
+//   }, 0);
+// };
 // export const selectTotalPrice = createSelector(
 //   (state:OrderSlice) => state.order.order,
 //   order =>order.reduce((total, item) => total + item.subtotal, 0)

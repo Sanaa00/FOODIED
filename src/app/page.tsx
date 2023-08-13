@@ -20,7 +20,7 @@ export default function Home() {
           <span className='border font-semibold border-black text-black rounded-full px-4 text-lg py-1'>Hungry?</span>
           <p className='text-black font-bold text-6xl mt-10 leading-[5rem]'>JUST COME TO FOODIED & ORDER</p>
           <p className='text-Gray mt-10'>Here you will Find Best Quality And Pure Food . Order <br className='hidden lg:block'/>Now To Satisfy Your Hunger Pangs</p>
-          <Link href="/order" className='px-12 py-5 bg-orange text-white font-semibold text-lg rounded-full mt-10'>Order Now</Link>
+          <Link href="/menu" className='px-12 py-5 bg-orange hover:bg-opacity-60 hover:duration-500 hover:ease-in-out duration-500 text-white font-semibold text-lg rounded-full mt-10'>Order Now</Link>
         </div>
         <div className='flex justify-end items-center w-1/2'>
           <Image

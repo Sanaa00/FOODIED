@@ -4,7 +4,7 @@ import React from 'react'
 import { Formik, Field, Form, FormikHelpers } from 'formik';
 import InputFeild from './InputFeild';
  import * as Yup from 'yup';
-import { error } from 'console';
+
 export default function ContactForm() {
       const ContactSchemaValidation = Yup.object().shape({
    fullName: Yup.string()
@@ -41,15 +41,15 @@ export default function ContactForm() {
       >
                  {({ errors, touched }) => (<Form className='flex flex-col items-center'>
                       <InputFeild id="fullName" name="fullName" placeholder="Your name" type="text" htmlFor="fullName"/>
-                      {errors.fullName && touched.fullName && <div>{errors.fullName}</div>}
+                      <div className={`${(errors.fullName && touched.fullName)?"block":"flex hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.fullName}</div>
                       <InputFeild id="email" name="email" placeholder="example@gmail.com" type="email" htmlFor="email" />
-                      {errors.email && touched.email && <div>{errors.email}</div>}
+                      <div  className={`${(errors.fullName && touched.fullName)?"block":"hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.email}</div>
                       <InputFeild id="subject" name="subject" placeholder="subject" type="text" htmlFor="subject" />
-                      {errors.subject && touched.subject && <div>{errors.subject}</div>}
+                       <div  className={`${(errors.fullName && touched.fullName)?"block":"hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.subject}</div>
                       <InputFeild id="message" name="message" placeholder="Write your message" type="text" htmlFor="message" />
-                      {errors.message && touched.message && <div>{errors.message}</div>}
+                       <div  className={`${(errors.fullName && touched.fullName)?"block":"hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.message}</div>
 
-                      <button type="submit" className='mt-5 px-6 py-2 bg-orange text-white rounded-full'>Submit</button>
+                      <button type="submit" className='mt-5 px-6 py-2 bg-orange text-white rounded-full duration-500 hover:duration-500 hover:ease-in-out hover:bg-opacity-60 hover:shadow-md'>Submit</button>
                  </Form>)}
       </Formik>
     </div>

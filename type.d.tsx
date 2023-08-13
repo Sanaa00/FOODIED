@@ -14,12 +14,23 @@ type Dishes = {
 type EventForPagination = {
   event: Event | undefined
 }
+interface OrderProp {
+  order:Dishes[]
+} 
+  
+  // totalPrice:number
+
 type OrderSlice = {
   order: {
-    order: Dishes[]
-  },
-  totalPrice:number
+    order:Dishes[]
+  }
+
 }
+interface RootState {
+  order: OrderSlice;
+  // Other slices of state
+}
+
 interface Values {
   fullName: string;
   message: string;
@@ -32,4 +43,8 @@ type InputProps = {
      placeholder: string,
      type: string,
      htmlFor:string
+}
+type CardPropd = {
+  currentItems?: Dishes[],
+  order?:Dishes[]
 }

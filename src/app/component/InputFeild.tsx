@@ -11,7 +11,7 @@ export default function InputFeild({id,name,placeholder,type,htmlFor}:InputProps
             name={name}
             placeholder={placeholder}
             type={type}
-            className="pl-2 border-2 border-gray-4 rounded focus:outline-none focus:border-orange focus:duration-500 hover:border-gray-600 hover:duration-500 py-2 w-96"
+            className=" pl-2 border-2 border-gray-4 rounded focus:outline-none focus:border-orange focus:duration-500 hover:border-gray-600 hover:duration-500 py-2 w-96"
                />
            
           </div>
