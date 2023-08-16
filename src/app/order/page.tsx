@@ -1,7 +1,7 @@
 "use client"
-import { addToOrder, deleteInOrder } from '@/redux/features/orderSlice'
+import {  deleteInOrder } from '@/redux/features/orderSlice'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import {  useDispatch, useSelector } from 'react-redux';
 import orderPhoto from "../../../public/images/order.svg"
 import Image from 'next/image';
 import TotalPrice from './component/TotalPrice'
@@ -17,10 +17,10 @@ export default function page() {
   console.log(order,"order")
 
   return (
-    // <>he</>
+    
     <div className='lg:mx-36 py-10 min:h-screen'>
       {order?.length !== 0 ?
-        <div className='flex flex-row justify-between '>
+        <div className='flex flex-row justify-between min:h-screen'>
           <div className='grid grid-cols-2 gap-5 w-2/3 '>
         
         {

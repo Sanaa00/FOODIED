@@ -7,9 +7,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
                "review":85,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":3,
+               "category":"Burger",
+               "meal":"Regular"
           },
              {
                "id":2,
@@ -18,9 +18,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":20.00,
                "review":35,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2,
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":3,
@@ -29,9 +29,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":30.00,
                "review":86,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":5,
+               "category":"Noodles",
+               "meal":"Regular"
           },
            {
                "id":4,
@@ -40,9 +40,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":40.00,
                "review":35,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":5,
@@ -51,9 +51,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":50.00,
                "review":33,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2.3,
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":6,
@@ -62,9 +62,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
                "review":97,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4.5,
+               "category":"Burger",
+               "meal":"Regular"
           },
            {
                "id":7,
@@ -73,9 +73,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":20.00,
                "review":24,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":5,
+               "category":"Noodles",
+               "meal":"Regular"
           },
            {
                "id":8,
@@ -84,9 +84,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":30.00,
                "review":36,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2,
+               "category":"french fry",
+               "meal":"Regular"
           },
            {
                "id":9,
@@ -95,9 +95,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":40.00,
                "review":68,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":3.5,
+               "category":"Noodles",
+               "meal":"Regular"
           },
            {
                "id":10,
@@ -106,9 +106,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":50.00,
                "review":92,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":1.4,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":11,
@@ -117,9 +117,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
                "review":97,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2.4,
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":12,
@@ -128,9 +128,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":20.00,
                "review":37,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":3.5,
+               "category":"Burger",
+               "meal":"Regular"
           },
            {
                "id":13,
@@ -139,9 +139,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":30.00,
                "review":48,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2.5,
+               "category":"Noodles",
+               "meal":"Regular"
           },
            {
                "id":14,
@@ -150,9 +150,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":40.00,
                "review":93,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":15,
@@ -161,9 +161,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":50.00,
                "review":68,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":5,
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":16,
@@ -172,9 +172,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
                "review":37,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":3,
+               "category":"Burger",
+               "meal":"Regular"
           },
            {
                "id":17,
@@ -183,9 +183,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":20.00,
                "review":84,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":1,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":18,
@@ -195,8 +195,8 @@
                "price":30.00,
                "review":29,
                "stars":0,
-               "category":"",
-               "meal":""
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":19,
@@ -205,9 +205,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":40.00,
                "review":182,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4.4,
+               "category":"Burger",
+               "meal":"Regular"
           },
            {
                "id":20,
@@ -216,9 +216,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":50.00,
                "review":48,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2.5,
+               "category":"Noodles",
+               "meal":"Regular"
           },
            {
                "id":21,
@@ -227,9 +227,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
                "review":78,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4.2,
+               "category":"Hot Dog",
+               "meal":"Regular"
           },
            {
                "id":22,
@@ -238,9 +238,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":20.00,
                "review":143,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4.2,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":23,
@@ -249,9 +249,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":30.00,
                "review":99,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":5,
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":24,
@@ -260,9 +260,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":40.00,
                "review":47,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4.1,
+               "category":"Burger",
+               "meal":"Regular"
           },
            {
                "id":25,
@@ -271,9 +271,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":50.00,
                "review":39,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":3.5,
+               "category":"Noodles",
+               "meal":"Regular"
           },
            {
                "id":26,
@@ -282,9 +282,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":10.00,
                "review":29,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":4,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":27,
@@ -293,9 +293,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":20.00,
                "review":19,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":3,
+               "category":"Pizza",
+               "meal":"Regular"
           },
            {
                "id":28,
@@ -304,9 +304,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":30.00,
                "review":39,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":2,
+               "category":"Burger",
+               "meal":"Regular"
           },
            {
                "id":29,
@@ -315,9 +315,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":40.00,
                "review":191,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":5,
+               "category":"Sandwich",
+               "meal":"Regular"
           },
            {
                "id":30,
@@ -326,9 +326,9 @@
                "description":"This is a great green salad that is very healthy.You can eat it with any mral.",
                "price":50.00,
                "review":20,
-               "stars":0,
-               "category":"",
-               "meal":""
+               "stars":1,
+               "category":"Pizza",
+               "meal":"Regular"
           }
      ]
 }

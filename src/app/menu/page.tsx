@@ -3,16 +3,16 @@ import React, { Suspense, useEffect, useState } from 'react'
 import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import { FaCircleArrowRight,FaCircleArrowLeft } from "react-icons/fa6";
-import getAllItemMenu from '../../../lib/getAllItemMenu';
-import SpecialMenu from './component/SpecialMenu';
+// import getAllItemMenu from '../../../lib/getAllItemMenu';
+// import SpecialMenu from './component/SpecialMenu';
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import { addToOrder, deleteInOrder } from '@/redux/features/orderSlice';
+// import { addToOrder, deleteInOrder } from '@/redux/features/orderSlice';
 import { store } from "../../redux/store"
 import ItemCard from '../component/ItemCard';
 interface PageClickEvent {
   selected: number;
 }
-export default function menu() {
+export default function Menu() {
   const dispatch = useDispatch()
   const { order } = useSelector((state: OrderSlice) => state)
   console.log(order)

@@ -48,3 +48,6 @@ type CardPropd = {
   currentItems?: Dishes[],
   order?:Dishes[]
 }
+type starCount = {
+  count:number
+}
