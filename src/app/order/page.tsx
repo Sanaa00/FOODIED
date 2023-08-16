@@ -20,8 +20,8 @@ export default function page() {
     
     <div className='lg:mx-36 py-10 min:h-screen'>
       {order?.length !== 0 ?
-        <div className='flex flex-row justify-between min:h-screen'>
-          <div className='grid grid-cols-2 gap-5 w-2/3 '>
+        <div className='flex flex-row gap-5 justify-between min:h-screen'>
+          <div className='grid grid-cols-3 gap-5 w-3/4 '>
         
         {
             order?.map((dish:Dishes) => {
@@ -48,7 +48,8 @@ export default function page() {
       
               </div>)
               })}
-        </div> <TotalPrice/></div>
+          </div>
+        <div className='w-1/4'><TotalPrice /></div>  </div>
      
           
         :

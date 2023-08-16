@@ -9,7 +9,7 @@ function TotalPrice() {
   console.log(sum)
   return (
       <div className='bg-orange bg-opacity-60 p-5 flex flex-col w-96 rounded h-fit mt-40'>
-        <p className='font-semibold '>
+        <p className='font-semibold text-center'>
           Order Summery 
         </p>
         <div className='mt-5 '>

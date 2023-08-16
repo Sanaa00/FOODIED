@@ -46,8 +46,17 @@ type InputProps = {
 }
 type CardPropd = {
   currentItems?: Dishes[],
-  order?:Dishes[]
+  order?: Dishes[],
+  filterHandler? : (category: string) => Dishes[]
 }
 type starCount = {
   count:number
+}
+interface PageClickEvent {
+  selected: number;
+}
+type SidbarPropd = {
+  currentItems: Dishes[],
+  // order?: Dishes[],
+  filterHandler: (category: string) => void
 }
