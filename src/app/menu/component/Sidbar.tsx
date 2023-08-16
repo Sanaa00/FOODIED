@@ -1,11 +1,12 @@
 import ItemCard from '@/app/component/ItemCard'
+import Search from '@/app/component/Search'
 import React from 'react'
 
-function Sidbar({ currentItems ,filterHandler}: SidbarPropd) {
+function Sidbar({ currentItems ,filterHandler,searchHandler}: SidbarPropd) {
      const category = ["Burger","Pizza","Noodles","Hot Dog","Sandwich","french fry" ]
   return (
        <div className='grid grid-cols-4 gap-5 '>
-            <div className='grid col-start-1 col-end-2 justify-start items-start mt-16 w-full'>
+            <div className='grid col-start-1 col-end-2 justify-start items-start mt-5 w-full'>
                  <div className='w-full'>
                       <p className='text-2xl text-dark font-semibold'>Category</p>
                       <hr className='text-Gray w-64 mt-2'/>
@@ -27,6 +28,8 @@ function Sidbar({ currentItems ,filterHandler}: SidbarPropd) {
 
             </div>
             <div className='grid col-start-2 col-end-5'>
+                 <div className='flex self-end w-full justify-end'>  <Search searchHandler={ searchHandler} /></div>
+                
                  <ItemCard currentItems={currentItems} />
             </div>
      

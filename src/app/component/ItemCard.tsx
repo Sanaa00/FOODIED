@@ -1,4 +1,5 @@
-
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToOrder } from '@/redux/features/orderSlice';
@@ -11,12 +12,13 @@ function ItemCard({currentItems,order}:CardPropd) {
                setOrderExist(true)
           }
      },[orderExist,order])
-//   const { order } = useSelector((state: OrderSlice) => state)
+
   return (
     <div className='my-5 grid grid-cols-3 gap-5'>
       {currentItems?.map((dish) => {
         return <div key={dish.id} className='shadow-lg rounded relative mt-40 border border-gray-100'>
           <div className='flex justify-center items-center'>
+         
             <img src={dish.image} className='w-60 h-60 rounded-full object-cover absolute -top-28 border-4 border-orange shadow-lg' />
           </div>
         

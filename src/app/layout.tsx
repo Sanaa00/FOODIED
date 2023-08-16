@@ -21,14 +21,14 @@ export default function RootLayout({
     
       <html lang="en">
       <body className={inter.className}>
-        {/* <Provider store={store}> */}
+      
         <ProviderComponent>
           <Navbar />
       
           {children}
           <Footer />
         </ProviderComponent>
-        {/* </Provider> */}
+       
       </body>
       </html>
    

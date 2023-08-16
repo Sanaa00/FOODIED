@@ -30,18 +30,15 @@ export default function ContactForm() {
         }}
         onSubmit={(
           values: Values,
-          // { setSubmitting }: FormikHelpers<Values>
+       
         ) => {
              console.log(values)
-          // setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          // //   setSubmitting(false);
-          // }, 500);
+       
         }}
       >
                  {({ errors, touched }) => (<Form className='flex flex-col items-center'>
                       <InputFeild id="fullName" name="fullName" placeholder="Your name" type="text" htmlFor="fullName"/>
-                      <div className={`${(errors.fullName && touched.fullName)?"block":"flex hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.fullName}</div>
+                      <div className={`${(errors.fullName && touched.fullName)?"block":" hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.fullName}</div>
                       <InputFeild id="email" name="email" placeholder="example@gmail.com" type="email" htmlFor="email" />
                       <div  className={`${(errors.fullName && touched.fullName)?"block":"hidden"} text-xs text-red-400 flex justify-start w-full duration-500 transition`}>{errors.email}</div>
                       <InputFeild id="subject" name="subject" placeholder="subject" type="text" htmlFor="subject" />

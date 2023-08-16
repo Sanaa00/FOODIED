@@ -3,15 +3,13 @@ import Link from 'next/link'
 import React from 'react'
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { useSelector } from 'react-redux';
-// import NavLink from './N
+
 type IsActive = {
-     // isActive:string
+
      ({ isActive }: { isActive: string; }) : string
 }
 function Navbar() {
-     // const { order } = useSelector((state: OrderSlice) => state?.order?.order)
-     // const { order } = useSelector((state: OrderSlice) => state)
-    const {order} = useSelector((state: OrderSlice) => state?.order?.order)
+    const {order} = useSelector((state: RootState) => state?.order?.order)
 
      console.log(order.length)
      return (

@@ -11,15 +11,15 @@ type Dishes = {
                "meal":string
           
 }
+
 type EventForPagination = {
   event: Event | undefined
 }
+
 interface OrderProp {
   order:Dishes[]
 } 
   
-  // totalPrice:number
-
 type OrderSlice = {
   order: {
     order:Dishes[]
@@ -28,7 +28,6 @@ type OrderSlice = {
 }
 interface RootState {
   order: OrderSlice;
-  // Other slices of state
 }
 
 interface Values {
@@ -37,6 +36,7 @@ interface Values {
   email: string;
   subject:string
 }
+
 type InputProps = {
      id: string,
      name: string,
@@ -44,19 +44,27 @@ type InputProps = {
      type: string,
      htmlFor:string
 }
+
 type CardPropd = {
   currentItems?: Dishes[],
   order?: Dishes[],
   filterHandler? : (category: string) => Dishes[]
 }
+
 type starCount = {
   count:number
 }
+
 interface PageClickEvent {
   selected: number;
 }
+
 type SidbarPropd = {
   currentItems: Dishes[],
-  // order?: Dishes[],
   filterHandler: (category: string) => void
+  searchHandler:(name: string) => void
+}
+
+type SearchProps = {
+  searchHandler:(name: string) => void
 }

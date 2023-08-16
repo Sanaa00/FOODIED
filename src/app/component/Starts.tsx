@@ -3,7 +3,7 @@ import ReactStars from 'react-stars'
 export default function Starts({count}:starCount) {
   return (
        <ReactStars
-            Value={count}
+            value={count}
             count={5}
             edit={false}
             half={true}

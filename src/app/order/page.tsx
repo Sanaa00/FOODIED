@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 "use client"
 import {  deleteInOrder } from '@/redux/features/orderSlice'
 import React from 'react'
@@ -6,14 +8,11 @@ import orderPhoto from "../../../public/images/order.svg"
 import Image from 'next/image';
 import TotalPrice from './component/TotalPrice'
 
-export default function page() {
+export default function Page() {
   
   const dispatch = useDispatch()
   const { order } = useSelector((state: RootState) => state?.order.order)
 
-  // let sum = 0;
-
-  // order.reduce((_: any, order: Dishes) => (sum += order.price * 1), 0);
   console.log(order,"order")
 
   return (
@@ -27,16 +26,12 @@ export default function page() {
             order?.map((dish:Dishes) => {
               return (<div key={dish.id} className='shadow-lg rounded relative mt-40 border border-gray-100'>
                 <div className='flex justify-center items-center'>
+                  
                   <img src={dish.image} className='w-60 h-60 rounded-full object-cover absolute -top-28 border-4 border-orange shadow-lg' />
                 </div>
         
                 <div className='p-4 mt-32 '>
                   <p className='text-lg font-bold text-black text-center '>{dish.name}</p>
-                  {/* <div className='flex flex-row justify-center mt-5'>
-              <div>{dish.stars}</div><p className='text-Gray'>({dish.review})</p>
-             
-             
-            </div> */}
                   <p className=' mt-5'>{dish.description}</p>
                   <div className='flex justify-between mt-5 '>
                     <p className='text-black border border-black rounded-full py-2 w-24 text-center '>{dish.price}</p>

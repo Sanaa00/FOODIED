@@ -14,7 +14,7 @@ export default function Menu() {
   const [currentItems, setCurrentItems] = useState<Dishes[]>([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const [filterProduct,SetFilterProduct]=useState<Dishes[]>(menuItems)
+  const [filterProduct, SetFilterProduct] = useState<Dishes[]>(menuItems)
   const itemsPerPage = 9;
   
 
@@ -23,7 +23,15 @@ export default function Menu() {
      const newOffset = (event.selected * itemsPerPage) % menuItems?.length;
     setItemOffset(newOffset);
   };
-   
+  const searchHandler=(name?:string) => {
+    if (name === "" || name===undefined) {
+      return SetFilterProduct(menuItems)
+    } else {
+      SetFilterProduct(menuItems.filter((product) => {
+     return  product.name.toLocaleLowerCase().includes(name)
+    }))
+    }
+  } 
   function FiltterHandler (category?: string)  {
     if (category === "" || category===null) {
       return SetFilterProduct(menuItems)
@@ -57,8 +65,7 @@ export default function Menu() {
     setPageCount(Math.ceil(filterProduct?.length / itemsPerPage));
     setIsLoading(false);
   }, [endOffset, itemOffset, itemsPerPage,pageCount,menuItems,filterProduct]);
-    // console.log("curent ",currentItems,menuItems)
-  
+
   return (
  
       <div className='lg:mx-36 flex flex-col items-center pt-10'>
@@ -70,8 +77,8 @@ export default function Menu() {
         {isLoading ? <div className='w-screen h-screen flex justify-center mt-20'>
           <div className="custom-loader"></div>
         </div> :
-          <Sidbar currentItems={currentItems} filterHandler={FiltterHandler} />
-            // <ItemCard currentItems={currentItems}/>
+          <Sidbar currentItems={currentItems} filterHandler={FiltterHandler} searchHandler={ searchHandler} />
+
           }
     
       <ReactPaginate
