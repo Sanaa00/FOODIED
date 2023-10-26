@@ -5,10 +5,13 @@ import ReactPaginate from 'react-paginate';
 import { FaCircleArrowRight,FaCircleArrowLeft } from "react-icons/fa6";
 import { useSelector } from 'react-redux';
 import Sidbar from './component/Sidbar';
-export default function Menu() {
+import { useGetAllFoodQuery } from '@/redux/features/api/food';
 
+export default function Menu() {
+  // const { data: allFood ,isError,isLoading:foodLoading,isSuccess,error} = useGetAllFoodQuery({ search: "", limit: 5, page: 1 })
+  // console.log("food",allFood,foodLoading,isError,error,isSuccess)
   const { order } = useSelector((state: OrderSlice) => state)
-  console.log(order)
+  // console.log(order)
   const [menuItems, setMenuItems] = useState<Dishes[]>([])
   const [isLoading, setIsLoading] = useState(true);
   const [currentItems, setCurrentItems] = useState<Dishes[]>([]);
@@ -23,15 +26,15 @@ export default function Menu() {
      const newOffset = (event.selected * itemsPerPage) % menuItems?.length;
     setItemOffset(newOffset);
   };
-  const searchHandler=(name?:string) => {
-    if (name === "" || name===undefined) {
-      return SetFilterProduct(menuItems)
-    } else {
-      SetFilterProduct(menuItems.filter((product) => {
-     return  product.name.toLocaleLowerCase().includes(name)
-    }))
-    }
-  } 
+  // const searchHandler=(name?:string) => {
+  //   if (name === "" || name===undefined) {
+  //     return SetFilterProduct(menuItems)
+  //   } else {
+  //     SetFilterProduct(menuItems.filter((product) => {
+  //    return  product.name.toLocaleLowerCase().includes(name)
+  //   }))
+  //   }
+  // } 
   function FiltterHandler (category?: string)  {
     if (category === "" || category===null) {
       return SetFilterProduct(menuItems)
@@ -77,7 +80,9 @@ export default function Menu() {
         {isLoading ? <div className='w-screen h-screen flex justify-center mt-20'>
           <div className="custom-loader"></div>
         </div> :
-          <Sidbar currentItems={currentItems} filterHandler={FiltterHandler} searchHandler={ searchHandler} />
+          <Sidbar currentItems={currentItems} filterHandler={FiltterHandler}
+            // searchHandler={searchHandler}
+          />
 
           }
     

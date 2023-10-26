@@ -19,7 +19,23 @@ type EventForPagination = {
 interface OrderProp {
   order:Dishes[]
 } 
-  
+
+type loginProp={
+  email: String,
+  password:String
+}
+type food = {
+    name: string,
+       description:string,
+         image: string,
+     rating: number,
+     review:number
+}
+type foodquery = {
+  page: number,
+  search: string,
+  limit:number
+}  
 type OrderSlice = {
   order: {
     order:Dishes[]
@@ -62,9 +78,23 @@ interface PageClickEvent {
 type SidbarPropd = {
   currentItems: Dishes[],
   filterHandler: (category: string) => void
-  searchHandler:(name: string) => void
+  // searchHandler:(name: string) => void
 }
 
 type SearchProps = {
   searchHandler:(name: string) => void
+}
+type userProp = {
+  _id: string,
+  firstName: string,
+  lastName: String,
+  email: String,
+  password: string,
+  createdAt: Date,
+  updatedAt:Date
+}
+type token = string
+type loginAuthProp = {
+  "user":userProp,
+    "token": token
 }

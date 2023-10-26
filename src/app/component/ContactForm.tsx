@@ -30,7 +30,6 @@ export default function ContactForm() {
         }}
         onSubmit={(
           values: Values,
-       
         ) => {
              console.log(values)
        

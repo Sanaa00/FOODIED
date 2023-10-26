@@ -1,8 +1,12 @@
 import ItemCard from '@/app/component/ItemCard'
 import Search from '@/app/component/Search'
+import { useGetAllFoodQuery } from '@/redux/features/api/auth'
 import React from 'react'
 
-function Sidbar({ currentItems ,filterHandler,searchHandler}: SidbarPropd) {
+function Sidbar({ currentItems, filterHandler
+     // , searchHandler
+}: SidbarPropd) {
+     // const {data:menu}=useGetAllFoodQuery({})
      const category = ["Burger","Pizza","Noodles","Hot Dog","Sandwich","french fry" ]
   return (
        <div className='grid grid-cols-4 gap-5 '>
@@ -28,7 +32,7 @@ function Sidbar({ currentItems ,filterHandler,searchHandler}: SidbarPropd) {
 
             </div>
             <div className='grid col-start-2 col-end-5'>
-                 <div className='flex self-end w-full justify-end'>  <Search searchHandler={ searchHandler} /></div>
+                 <div className='flex self-end w-full justify-end'>  <Search  /></div>
                 
                  <ItemCard currentItems={currentItems} />
             </div>
