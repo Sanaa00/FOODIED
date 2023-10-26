@@ -4,18 +4,18 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToOrder } from '@/redux/features/orderSlice';
 import Starts from './Starts';
-function ItemCard({currentItems,order}:CardPropd) {
+function ItemCard({food}:food) {
      const dispatch = useDispatch()
      const [orderExist, setOrderExist] = useState<boolean>(false)
-     useEffect(() => {
-          if (order) {
-               setOrderExist(true)
-          }
-     },[orderExist,order])
+    //  useEffect(() => {
+    //       if (order) {
+    //            setOrderExist(true)
+    //       }
+    //  },[orderExist,order])
 
   return (
     <div className='my-5 grid grid-cols-3 gap-5'>
-      {currentItems?.map((dish) => {
+      {food?.data?.fetchedFood?.map((dish) => {
         return <div key={dish.id} className='shadow-lg rounded relative mt-40 border border-gray-100'>
           <div className='flex justify-center items-center'>
          

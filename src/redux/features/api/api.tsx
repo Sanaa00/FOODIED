@@ -14,7 +14,7 @@ console.log("token",token)
       return headers;
     },
   }),
- tagTypes: ["login","signup"],
+ tagTypes: ["login","signup","category"],
           
      // }),
      endpoints: () => ({}),

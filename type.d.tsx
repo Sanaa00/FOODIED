@@ -24,12 +24,22 @@ type loginProp={
   email: String,
   password:String
 }
-type food = {
+type foodItem = {
+   categoryId: {
+    _id: string;
+    name: string;
+  };
     name: string,
-       description:string,
-         image: string,
-     rating: number,
-     review:number
+    description:string,
+    image: string,
+    rating: number,
+    review:number
+}
+type food = {
+   data: {
+        result: number,
+        fetchedFood:foodItem[]},
+   status: string ;
 }
 type foodquery = {
   page: number,
@@ -80,9 +90,34 @@ type SidbarPropd = {
   filterHandler: (category: string) => void
   // searchHandler:(name: string) => void
 }
-
+type RootStateSearch={
+  search: {
+     search:string
+   }
+ }
 type SearchProps = {
   searchHandler:(name: string) => void
+}
+// type category = {
+//   data: [
+//     name: string,
+//   _id: string,
+//     food: string[]
+//   ],
+
+//   status:string
+ 
+// }
+interface CategoryItem {
+  _id: string;
+  name: string;
+  food: Array<unknown>; // Replace 'unknown' with the actual type if you know the structure
+  __v: number;
+}
+
+interface category {
+  data: CategoryItem[];
+  status: string;
 }
 type userProp = {
   _id: string,

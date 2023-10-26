@@ -2,15 +2,6 @@ import { apiSlice } from "./api";
 const AuthApi = apiSlice.injectEndpoints({
 
      endpoints: (builder) => ({
-
-          getAllFood: builder.query<food[],foodquery>({
-               query: ({ search, page, limit }) => {
-                    return {
-                         url: `/food?search=${search}&page=${page}&limit=${limit}`,
-                         method: "GET", // Set the HTTP method (GET, POST, etc.) as needed
-                    };
-               }
-          }),
      login: builder.mutation({
       query: (body) => ({
         url: "http://localhost:4000/api/user/login",
@@ -33,4 +24,4 @@ const AuthApi = apiSlice.injectEndpoints({
 
 })
 
-export const { useGetAllFoodQuery ,useLoginMutation,useSignupMutation} = AuthApi;
+export const {  useLoginMutation,useSignupMutation} = AuthApi;

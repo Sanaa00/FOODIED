@@ -3,71 +3,59 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import { FaCircleArrowRight,FaCircleArrowLeft } from "react-icons/fa6";
-import { useSelector } from 'react-redux';
 import Sidbar from './component/Sidbar';
-import { useGetAllFoodQuery } from '@/redux/features/api/food';
+
 
 export default function Menu() {
-  // const { data: allFood ,isError,isLoading:foodLoading,isSuccess,error} = useGetAllFoodQuery({ search: "", limit: 5, page: 1 })
-  // console.log("food",allFood,foodLoading,isError,error,isSuccess)
-  const { order } = useSelector((state: OrderSlice) => state)
-  // console.log(order)
-  const [menuItems, setMenuItems] = useState<Dishes[]>([])
-  const [isLoading, setIsLoading] = useState(true);
-  const [currentItems, setCurrentItems] = useState<Dishes[]>([]);
-  const [pageCount, setPageCount] = useState(0);
-  const [itemOffset, setItemOffset] = useState(0);
-  const [filterProduct, SetFilterProduct] = useState<Dishes[]>(menuItems)
-  const itemsPerPage = 9;
+
+  // const [menuItems, setMenuItems] = useState<Dishes[]>([])
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [currentItems, setCurrentItems] = useState<Dishes[]>([]);
+  // const [pageCount, setPageCount] = useState(0);
+  // const [itemOffset, setItemOffset] = useState(0);
+  // const [filterProduct, SetFilterProduct] = useState<Dishes[]>(menuItems)
+  // const itemsPerPage = 9;
   
 
-  const endOffset = itemOffset + itemsPerPage;
-  const handlePageClick = (event:PageClickEvent) => {
-     const newOffset = (event.selected * itemsPerPage) % menuItems?.length;
-    setItemOffset(newOffset);
-  };
-  // const searchHandler=(name?:string) => {
-  //   if (name === "" || name===undefined) {
+  // const endOffset = itemOffset + itemsPerPage;
+  // const handlePageClick = (event:PageClickEvent) => {
+  //    const newOffset = (event.selected * itemsPerPage) % menuItems?.length;
+  //   setItemOffset(newOffset);
+  // };
+
+  // function FiltterHandler (category?: string)  {
+  //   if (category === "" || category===null) {
   //     return SetFilterProduct(menuItems)
   //   } else {
   //     SetFilterProduct(menuItems.filter((product) => {
-  //    return  product.name.toLocaleLowerCase().includes(name)
+  //    return  product.category===category
   //   }))
   //   }
-  // } 
-  function FiltterHandler (category?: string)  {
-    if (category === "" || category===null) {
-      return SetFilterProduct(menuItems)
-    } else {
-      SetFilterProduct(menuItems.filter((product) => {
-     return  product.category===category
-    }))
-    }
    
-  }
+  // }
 
-   useEffect(() => {
+  //  useEffect(() => {
   
-    axios
-      .get(" http://localhost:8000/dishes")
-      .then((response) => {
-        setMenuItems(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  //   axios
+  //     .get(" http://localhost:8000/dishes")
+  //     .then((response) => {
+  //       setMenuItems(response.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
  
-  }, [])
+  // }, [])
 
-  useEffect(() => {
-    SetFilterProduct(menuItems)
-  },[menuItems])
-  useEffect(() => {
+  // useEffect(() => {
+  //   SetFilterProduct(menuItems)
+  // },[menuItems])
+  // useEffect(() => {
     
-    setCurrentItems(filterProduct?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(filterProduct?.length / itemsPerPage));
-    setIsLoading(false);
-  }, [endOffset, itemOffset, itemsPerPage,pageCount,menuItems,filterProduct]);
+  //   setCurrentItems(filterProduct?.slice(itemOffset, endOffset));
+  //   setPageCount(Math.ceil(filterProduct?.length / itemsPerPage));
+  //   setIsLoading(false);
+  // }, [endOffset, itemOffset, itemsPerPage,pageCount,menuItems,filterProduct]);
 
   return (
  
@@ -77,22 +65,23 @@ export default function Menu() {
       <p className='text-Gray mt-10 text-center w-2/5'>
         This is our daily food list. Here you will find all kinds of food . choose your favorite food and order
       </p>
-        {isLoading ? <div className='w-screen h-screen flex justify-center mt-20'>
+        {/* {isLoading ? <div className='w-screen h-screen flex justify-center mt-20'>
           <div className="custom-loader"></div>
-        </div> :
-          <Sidbar currentItems={currentItems} filterHandler={FiltterHandler}
-            // searchHandler={searchHandler}
+        </div> : */}
+        <Sidbar
+          // currentItems={currentItems} filterHandler={FiltterHandler}
+            
           />
 
-          }
+          {/* } */}
     
       <ReactPaginate
         className='flex items-center my-5'
         previousLabel={<FaCircleArrowLeft className="w-6 h-6 text-orange m-3"/>}
         nextLabel={<FaCircleArrowRight className="w-6 h-6 text-orange m-3"/>}
-        pageCount={pageCount}
+        pageCount={5}
          pageRangeDisplayed={2}
-        onPageChange={handlePageClick}
+        // onPageChange={handlePageClick}
         containerClassName="text-Gray m-2 p-2"
          pageClassName="text-black mx-2 text-lg"
         activeClassName=" text-orange "
