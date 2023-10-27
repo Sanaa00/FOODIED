@@ -13,7 +13,7 @@ export default function Menu() {
   const category = useSelector((state: categoryProp) => state.category.category)
   const search=useSelector((state:RootStateSearch)=>state.search.search)
   const { data: allFood, isLoading, isError, error } = useGetAllFoodQuery({ search:search, page: page, limit: 3 ,category:category});
-
+console.log(allFood)
   return (
  
       <div className='lg:mx-36 flex flex-col items-center pt-10'>
@@ -35,7 +35,7 @@ export default function Menu() {
             setPage(e.selected + 1);
           }}
           
-        pageCount={allFood? allFood?.data?.result/ 6:page}
+        pageCount={allFood? Math.ceil(allFood?.data?.result/ 3):page}
         pageRangeDisplayed={2}
        
         containerClassName="text-Gray m-2 p-2"

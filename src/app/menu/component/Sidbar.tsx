@@ -20,11 +20,11 @@ function Sidbar({allFood}:Food) {
                       <p className='text-2xl text-dark font-semibold'>Category</p>
                       <hr className='text-Gray w-64 mt-2'/>
                       <div className='flex flex-col justify-start items-start w-full mt-3'>
-                           {/* <button
+                           <button
                                 onClick={() => filterHandler("")
                                 }
                                        className='text-lg font-semibold text-black hover:text-orange active:text-orange focus:text-orange hover:scale-110 hover:duration-500 duration-500 mt-3 hover:ease-in-out'
-                                     >All</button> */}
+                                     >All</button>
                            {allCategory?.data?.map((categoryy) => {
                                 return <div key={categoryy._id}>
                                      
