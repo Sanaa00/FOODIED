@@ -35,13 +35,14 @@ type foodItem = {
     rating: number,
     review:number
 }
-type food = {
+type Food = {
    data: {
         result: number,
         fetchedFood:foodItem[]},
    status: string ;
 }
 type foodquery = {
+  category:string,
   page: number,
   search: string,
   limit:number
@@ -52,10 +53,17 @@ type OrderSlice = {
   }
 
 }
+type SearchArg = {
+  searcg:string
+}
 interface RootState {
   order: OrderSlice;
 }
-
+type categoryProp = {
+  category: {
+    category: string
+  }
+}
 interface Values {
   fullName: string;
   message: string;

@@ -4,58 +4,15 @@ import axios from "axios";
 import ReactPaginate from 'react-paginate';
 import { FaCircleArrowRight,FaCircleArrowLeft } from "react-icons/fa6";
 import Sidbar from './component/Sidbar';
+import { useGetAllFoodQuery } from '@/redux/features/api/food';
+import { useSelector } from 'react-redux';
 
 
 export default function Menu() {
-
-  // const [menuItems, setMenuItems] = useState<Dishes[]>([])
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [currentItems, setCurrentItems] = useState<Dishes[]>([]);
-  // const [pageCount, setPageCount] = useState(0);
-  // const [itemOffset, setItemOffset] = useState(0);
-  // const [filterProduct, SetFilterProduct] = useState<Dishes[]>(menuItems)
-  // const itemsPerPage = 9;
-  
-
-  // const endOffset = itemOffset + itemsPerPage;
-  // const handlePageClick = (event:PageClickEvent) => {
-  //    const newOffset = (event.selected * itemsPerPage) % menuItems?.length;
-  //   setItemOffset(newOffset);
-  // };
-
-  // function FiltterHandler (category?: string)  {
-  //   if (category === "" || category===null) {
-  //     return SetFilterProduct(menuItems)
-  //   } else {
-  //     SetFilterProduct(menuItems.filter((product) => {
-  //    return  product.category===category
-  //   }))
-  //   }
-   
-  // }
-
-  //  useEffect(() => {
-  
-  //   axios
-  //     .get(" http://localhost:8000/dishes")
-  //     .then((response) => {
-  //       setMenuItems(response.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
- 
-  // }, [])
-
-  // useEffect(() => {
-  //   SetFilterProduct(menuItems)
-  // },[menuItems])
-  // useEffect(() => {
-    
-  //   setCurrentItems(filterProduct?.slice(itemOffset, endOffset));
-  //   setPageCount(Math.ceil(filterProduct?.length / itemsPerPage));
-  //   setIsLoading(false);
-  // }, [endOffset, itemOffset, itemsPerPage,pageCount,menuItems,filterProduct]);
+  const [page,setPage]=useState(1)
+  const category = useSelector((state: categoryProp) => state.category.category)
+  const search=useSelector((state:RootStateSearch)=>state.search.search)
+  const { data: allFood, isLoading, isError, error } = useGetAllFoodQuery({ search:search, page: page, limit: 3 ,category:category});
 
   return (
  
@@ -65,26 +22,27 @@ export default function Menu() {
       <p className='text-Gray mt-10 text-center w-2/5'>
         This is our daily food list. Here you will find all kinds of food . choose your favorite food and order
       </p>
-        {/* {isLoading ? <div className='w-screen h-screen flex justify-center mt-20'>
-          <div className="custom-loader"></div>
-        </div> : */}
-        <Sidbar
-          // currentItems={currentItems} filterHandler={FiltterHandler}
-            
+   <Sidbar
+          allFood={allFood}
           />
 
-          {/* } */}
     
-      <ReactPaginate
+     <ReactPaginate
         className='flex items-center my-5'
         previousLabel={<FaCircleArrowLeft className="w-6 h-6 text-orange m-3"/>}
-        nextLabel={<FaCircleArrowRight className="w-6 h-6 text-orange m-3"/>}
-        pageCount={5}
-         pageRangeDisplayed={2}
-        // onPageChange={handlePageClick}
+        nextLabel={<FaCircleArrowRight className="w-6 h-6 text-orange m-3" />}
+        onPageChange={(e) => {
+            setPage(e.selected + 1);
+          }}
+          
+        pageCount={allFood? allFood?.data?.result/ 6:page}
+        pageRangeDisplayed={2}
+       
         containerClassName="text-Gray m-2 p-2"
-         pageClassName="text-black mx-2 text-lg"
+        pageClassName="text-black mx-2 text-lg"
         activeClassName=" text-orange "
+        renderOnZeroPageCount={null}
+        forcePage={page - 1}
       />
   
     

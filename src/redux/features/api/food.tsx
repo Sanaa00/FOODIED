@@ -3,11 +3,11 @@ const foodApi = apiSlice.injectEndpoints({
 
      endpoints: (builder) => ({
 
-          getAllFood: builder.query<food,foodquery>({
-               query: ({  page, limit }) => {
+          getAllFood: builder.query<Food,foodquery>({
+               query: ({  page, limit ,category,search}) => {
                     return {
-                         url: `http://localhost:4000/api/food?page=${page}&limit=${limit}`,
-                         method: "GET", // Set the HTTP method (GET, POST, etc.) as needed
+                         url: `http://localhost:4000/api/food?page=${page}&limit=${limit}&categoryId=${category}&name=${search}`,
+                         method: "GET", 
                     };
                }
           })
