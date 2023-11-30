@@ -1,15 +1,15 @@
+// import { ChangeEvent } from 'react'
+
 type Dishes = {
-  
-               "id":number,
-               "name":string,
-               "image":string,
-               "description":string,
-               "price":number,
-               "review":number,
-               "stars":number,
-               "category":string,
-               "meal":string
-          
+  id: number
+  name: string
+  image: string
+  description: string
+  price: number
+  review: number
+  stars: number
+  category: string
+  meal: string
 }
 
 type EventForPagination = {
@@ -17,47 +17,47 @@ type EventForPagination = {
 }
 
 interface OrderProp {
-  order:Dishes[]
-} 
+  order: Dishes[]
+}
 
-type loginProp={
-  email: String,
-  password:String
+type loginProp = {
+  email: String
+  password: String
 }
 type foodItem = {
-   categoryId: {
-    _id: string;
-    name: string;
-  };
-    name: string,
-    description:string,
-    image: string,
-    rating: number,
-    review:number
+  categoryId: {
+    _id: string
+    name: string
+  }
+  name: string
+  description: string
+  image: string
+  rating: number
+  review: number
 }
 type Food = {
-   data: {
-        result: number,
-        fetchedFood:foodItem[]},
-   status: string ;
+  data: {
+    result: number
+    fetchedFood: foodItem[]
+  }
+  status: string
 }
 type foodquery = {
-  category:string,
-  page: number,
-  search: string,
-  limit:number
-}  
+  category: string
+  page: number
+  search: string
+  limit: number
+}
 type OrderSlice = {
   order: {
-    order:Dishes[]
+    order: Dishes[]
   }
-
 }
 type SearchArg = {
-  searcg:string
+  searcg: string
 }
 interface RootState {
-  order: OrderSlice;
+  order: OrderSlice
 }
 type categoryProp = {
   category: {
@@ -65,46 +65,48 @@ type categoryProp = {
   }
 }
 interface Values {
-  fullName: string;
-  message: string;
-  email: string;
-  subject:string
+  fullName: string
+  message: string
+  email: string
+  subject: string
 }
 
 type InputProps = {
-     id: string,
-     name: string,
-     placeholder: string,
-     type: string,
-     htmlFor:string
+  id: string
+  name: string
+  placeholder: string
+  type: string
+  htmlFor: string
+  value: string
+  onChange: (e: string | ChangeEvent<any>) => void
 }
 
 type CardPropd = {
-  currentItems?: Dishes[],
-  order?: Dishes[],
-  filterHandler? : (category: string) => Dishes[]
+  currentItems?: Dishes[]
+  order?: Dishes[]
+  filterHandler?: (category: string) => Dishes[]
 }
 
 type starCount = {
-  count:number
+  count: number
 }
 
 interface PageClickEvent {
-  selected: number;
+  selected: number
 }
 
 type SidbarPropd = {
-  currentItems: Dishes[],
+  currentItems: Dishes[]
   filterHandler: (category: string) => void
   // searchHandler:(name: string) => void
 }
-type RootStateSearch={
+type RootStateSearch = {
   search: {
-     search:string
-   }
- }
+    search: string
+  }
+}
 type SearchProps = {
-  searchHandler:(name: string) => void
+  searchHandler: (name: string) => void
 }
 // type category = {
 //   data: [
@@ -114,30 +116,30 @@ type SearchProps = {
 //   ],
 
 //   status:string
- 
+
 // }
 interface CategoryItem {
-  _id: string;
-  name: string;
-  food: Array<unknown>; // Replace 'unknown' with the actual type if you know the structure
-  __v: number;
+  _id: string
+  name: string
+  food: Array<unknown> // Replace 'unknown' with the actual type if you know the structure
+  __v: number
 }
 
 interface category {
-  data: CategoryItem[];
-  status: string;
+  data: CategoryItem[]
+  status: string
 }
 type userProp = {
-  _id: string,
-  firstName: string,
-  lastName: String,
-  email: String,
-  password: string,
-  createdAt: Date,
-  updatedAt:Date
+  _id: string
+  firstName: string
+  lastName: String
+  email: String
+  password: string
+  createdAt: Date
+  updatedAt: Date
 }
 type token = string
 type loginAuthProp = {
-  "user":userProp,
-    "token": token
+  user: userProp
+  token: token
 }

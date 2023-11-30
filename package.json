@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write src",
+    "check-format": "prettier --check src"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -31,10 +33,11 @@
     "react-stars": "^2.2.5",
     "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6",
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@types/react-stars": "^2.2.1"
+    "@types/react-stars": "^2.2.1",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
   }
 }
