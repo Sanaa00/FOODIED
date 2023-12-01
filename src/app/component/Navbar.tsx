@@ -39,7 +39,7 @@ function Navbar() {
               <HiOutlineShoppingBag className='text-white w-5 h-5' />
             </div>
           </Link>
-          {user === null ? (
+          {!localStorage.getItem('user_data') ? (
             <Link href='login'>login</Link>
           ) : (
             <Link href='/profile'>

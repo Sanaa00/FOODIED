@@ -16,7 +16,7 @@ function Page() {
 
   const [login, { data: loginData, isError, isLoading, isSuccess, error }] =
     useLoginMutation()
-  console.log('here', loginData?.user)
+  console.log('here login', isError, error)
   const loginSchemaValidation = Yup.object().shape({
     password: Yup.string().min(6).required('Required'),
     username: Yup.string().required('Required'),
@@ -30,14 +30,16 @@ function Page() {
   useEffect(() => {
     if (!isError && !error && loginData) {
       localStorage.setItem('access_token', loginData?.token)
+      localStorage.setItem('user_data', JSON.stringify(loginData.data))
+      dispatch(addUser(loginData?.data))
     }
-    dispatch(addUser(loginData?.user))
+    dispatch(addUser(loginData?.data))
   }, [dispatch, error, isError, loginData])
 
-  if (loginData) {
+  if (localStorage.getItem('access_token')) {
     router.push('/home')
   }
-  if (localStorage.getItem('access_token')) {
+  if (loginData && isSuccess) {
     router.push('/home')
   }
   return (
@@ -85,10 +87,17 @@ function Page() {
               >
                 {errors.password}
               </div>
+              {error?.data?.message === 'Invalid credentials' && (
+                <div className='text-xs text-red-400 flex justify-start w-full duration-500 transition'>
+                  password or username incorrect{' '}
+                </div>
+              )}
+
               <div className='text-sm w-full text-start'>
                 do you have account ? <Link href='signUp'>signup</Link>
               </div>
               <button
+                disabled={isLoading}
                 type='submit'
                 className='mt-5 px-6 py-2 bg-orange text-white rounded-full duration-500 hover:duration-500 hover:ease-in-out hover:bg-opacity-60 hover:shadow-md'
               >

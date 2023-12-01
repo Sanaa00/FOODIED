@@ -16,6 +16,8 @@ function Page() {
   console.log(signupData, isLoading, isError, error)
   const signUpSchemaValidation = Yup.object().shape({
     email: Yup.string().email().required('Required'),
+    firstName: Yup.string().required('Required'),
+    lastName: Yup.string().required('Required'),
     username: Yup.string().required('Required'),
     password: Yup.string().min(6).required('Required'),
   })
@@ -51,7 +53,7 @@ function Page() {
             }}
           >
             {({ values, errors, touched, handleChange }) => (
-              <Form className='flex flex-col items-center'>
+              <Form className='flex flex-col items-center w-full'>
                 <InputFeild
                   onChange={handleChange}
                   value={values.firstName}
@@ -63,7 +65,9 @@ function Page() {
                 />
                 <div
                   className={`${
-                    errors.firstName && touched.firstName ? 'block' : ' hidden'
+                    errors.firstName && touched.firstName
+                      ? 'block w-full'
+                      : ' hidden'
                   } text-xs text-red-400 flex justify-start w-full duration-500 transition`}
                 >
                   {errors.firstName}
@@ -96,7 +100,7 @@ function Page() {
                 <div
                   className={`${
                     errors.email && touched.email ? 'block' : ' hidden'
-                  } text-xs text-red-400 flex justify-start w-full duration-500 transition`}
+                  } text-xs text-red-400 flex justify-start items-start w-full duration-500 transition`}
                 >
                   {errors.email}
                 </div>
@@ -132,7 +136,11 @@ function Page() {
                 >
                   {errors.password}
                 </div>
-
+                {error?.data?.message === 'Username already exists' && (
+                  <div className='text-xs text-red-400 flex w-full duration-500 transition'>
+                    User already exists
+                  </div>
+                )}
                 <button
                   type='submit'
                   className='mt-5 px-6 py-2 bg-orange text-white rounded-full duration-500 hover:duration-500 hover:ease-in-out hover:bg-opacity-60 hover:shadow-md'

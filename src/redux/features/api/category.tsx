@@ -9,4 +9,3 @@ const categoryApi = apiSlice.injectEndpoints({
 })
 
 export const { useGetAllCategoryQuery } = categoryApi
-s

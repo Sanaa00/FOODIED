@@ -3,7 +3,6 @@
 import Starts from '@/app/component/Starts'
 import { addToOrder } from '@/redux/features/orderSlice'
 import axios from 'axios'
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 type Props = {
