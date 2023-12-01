@@ -33,7 +33,7 @@ export default function ContactForm() {
           message: '',
         }}
         onSubmit={(values: Values) => {
-          console.log(values)
+          // console.log(values)
         }}
       >
         {({ errors, touched, values, handleChange }) => (

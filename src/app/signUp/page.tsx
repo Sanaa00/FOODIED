@@ -13,7 +13,7 @@ function Page() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [signup, { data: signupData, isLoading, isError, error, isSuccess }] =
     useSignupMutation()
-  console.log(signupData, isLoading, isError, error)
+  // console.log(signupData, isLoading, isError, error)
   const signUpSchemaValidation = Yup.object().shape({
     email: Yup.string().email().required('Required'),
     firstName: Yup.string().required('Required'),
@@ -48,7 +48,7 @@ function Page() {
             validationSchema={signUpSchemaValidation}
             initialValues={initialValues}
             onSubmit={values => {
-              console.log(values, error)
+              // console.log(values, error)
               signup(values)
             }}
           >

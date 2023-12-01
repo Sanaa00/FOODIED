@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux'
 
 function Navbar() {
   const user = useSelector(state => state.user.user)
-  console.log('user in navbar', user)
+  // console.log('user in navbar', user)
   const { order } = useSelector((state: RootState) => state?.order?.order)
 
-  console.log(order.length)
+  // console.log(order.length)
   return (
     <div className='fixed w-screen bg-white/80 z-50'>
       <nav className='flex justify-between items-center lg:mx-36 py-6 '>

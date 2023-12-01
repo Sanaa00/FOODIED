@@ -12,7 +12,7 @@ export default function Page() {
   const dispatch = useDispatch()
   const { order } = useSelector((state: RootState) => state?.order.order)
 
-  console.log(order, 'order')
+  // console.log(order, 'order')
 
   return (
     <div className='lg:mx-36 py-10 min:h-screen'>

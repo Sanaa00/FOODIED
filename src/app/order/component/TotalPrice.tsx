@@ -6,7 +6,7 @@ function TotalPrice() {
   let sum = 0
 
   order.reduce((_: any, order: Dishes) => (sum += order.price * 1), 0)
-  console.log(sum)
+  // console.log(sum)
   return (
     <div className='bg-orange bg-opacity-60 p-5 flex flex-col w-96 rounded h-fit mt-40'>
       <p className='font-semibold text-center'>Order Summery</p>

@@ -13,8 +13,8 @@ type Props = {
 function SingleDish({ params }: Props) {
   const dispatch = useDispatch()
   const [singleDish, setsingleDish] = useState<Dishes>()
-  console.log(params?.singleDish)
-  console.log(singleDish)
+  // console.log(params?.singleDish)
+  // console.log(singleDish)
   useEffect(() => {
     axios
       .get(` http://localhost:8000/dishes/${params?.singleDish}`)
@@ -22,7 +22,7 @@ function SingleDish({ params }: Props) {
         setsingleDish(response.data)
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
       })
   }, [params?.singleDish])
 

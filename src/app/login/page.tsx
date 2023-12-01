@@ -12,11 +12,11 @@ function Page() {
   const router = useRouter()
   const dispatch = useDispatch()
   const user = useSelector(state => state.user.user)
-  console.log('userrrrrrrrrrrrrrr', user)
+  // console.log('userrrrrrrrrrrrrrr', user)
 
   const [login, { data: loginData, isError, isLoading, isSuccess, error }] =
     useLoginMutation()
-  console.log('here login', isError, error)
+  // console.log('here login', isError, error)
   const loginSchemaValidation = Yup.object().shape({
     password: Yup.string().min(6).required('Required'),
     username: Yup.string().required('Required'),

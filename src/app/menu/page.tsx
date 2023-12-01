@@ -22,7 +22,7 @@ export default function Menu() {
     limit: 3,
     category: category,
   })
-  console.log(allFood)
+  // console.log(allFood)
   return (
     <div className='lg:mx-36 flex flex-col items-center pt-10'>
       <section className='flex flex-col items-center'>
