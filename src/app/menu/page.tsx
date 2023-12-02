@@ -1,6 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { FaCircleArrowRight, FaCircleArrowLeft } from 'react-icons/fa6'
 import Sidbar from './component/Sidbar'
@@ -22,7 +21,7 @@ export default function Menu() {
     limit: 3,
     category: category,
   })
-  // console.log(allFood)
+
   return (
     <div className='lg:mx-36 flex flex-col items-center pt-10'>
       <section className='flex flex-col items-center'>
@@ -33,7 +32,7 @@ export default function Menu() {
           This is our daily food list. Here you will find all kinds of food .
           choose your favorite food and order
         </p>
-        <Sidbar allFood={allFood} />
+        {allFood !== undefined && <Sidbar allFood={allFood} />}
 
         <ReactPaginate
           className='flex items-center my-5'
@@ -44,7 +43,9 @@ export default function Menu() {
           onPageChange={e => {
             setPage(e.selected + 1)
           }}
-          pageCount={allFood ? Math.ceil(allFood?.data?.result / 3) : page}
+          pageCount={
+            allFood?.data ? Math.ceil(allFood?.data?.result / 3) : page
+          }
           pageRangeDisplayed={2}
           containerClassName='text-Gray m-2 p-2'
           pageClassName='text-black mx-2 text-lg'

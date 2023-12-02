@@ -2,18 +2,12 @@ import ItemCard from '@/app/component/ItemCard'
 import Search from '@/app/component/Search'
 import { useGetAllCategoryQuery } from '@/redux/features/api/category'
 import { addCategory } from '@/redux/features/api/categorySlice'
-import { useGetAllFoodQuery } from '@/redux/features/api/food'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 function Sidbar({ allFood }: Food) {
   const dispatch = useDispatch()
-  const {
-    data: allCategory,
-    isLoading: categoryLoading,
-    isError: categoryIsError,
-    error: categoryError,
-  } = useGetAllCategoryQuery()
+  const { data: allCategory } = useGetAllCategoryQuery()
 
   const filterHandler = (category: string) => {
     dispatch(addCategory(category))
@@ -52,7 +46,7 @@ function Sidbar({ allFood }: Food) {
           <Search />
         </div>
 
-        {allFood && <ItemCard food={allFood} />}
+        {allFood && <ItemCard allFood={allFood} />}
       </div>
     </div>
   )

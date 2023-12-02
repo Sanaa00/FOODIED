@@ -24,7 +24,7 @@ type loginProp = {
   email: String
   password: String
 }
-type foodItem = {
+interface FoodItem {
   categoryId: {
     _id: string
     name: string
@@ -32,16 +32,42 @@ type foodItem = {
   name: string
   description: string
   image: string
-  rating: number
-  review: number
+  rating?: number
+  review?: number
+  stars: number
+  price: number
+  _id: string
 }
-type Food = {
-  data: {
-    result: number
-    fetchedFood: foodItem[]
+
+interface Food {
+  allFood: {
+    data: {
+      result: number
+      fetchedFood: FoodItem[]
+    }
+
+    status: string
   }
-  status: string
 }
+// type FoodItem = {
+//   categoryId: {
+//     _id: string
+//     name: string
+//   }
+//   name: string
+//   description: string
+//   image: string
+//   rating?: number
+//   review?: number
+//   _id: string
+// }
+// interface Food {
+//   data: {
+//     result: number
+//     fetchedFood: FoodItem[]
+//   }
+//   status: string
+// }
 type foodquery = {
   category: string
   page: number
@@ -54,7 +80,7 @@ type OrderSlice = {
   }
 }
 type SearchArg = {
-  searcg: string
+  search: string
 }
 interface RootState {
   order: OrderSlice
@@ -78,7 +104,7 @@ type InputProps = {
   type: string
   htmlFor: string
   value: string
-  onChange: (e: string | ChangeEvent<any>) => void
+  onChange: (e: string | any) => void
 }
 
 type CardPropd = {

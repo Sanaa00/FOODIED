@@ -1,7 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import WelcomeScreen from './component/WelcomeScreen'
-import { useRouter } from 'next/router'
 export default function Home() {
   const [redirect, setRedirect] = useState(false)
   useEffect(() => {
@@ -10,7 +8,7 @@ export default function Home() {
     }, 3000)
 
     if (redirect) {
-      window.location.href = '/login' // Redirect on the client side
+      window.location.href = '/login'
     }
     return () => clearTimeout(timer)
   }, [redirect])

@@ -5,7 +5,6 @@ export const apiSlice = createApi({
     baseUrl: process.env.VITE_BASE_URL,
     prepareHeaders: headers => {
       const token = localStorage.getItem('access_token')
-      console.log('token', token)
       if (token !== null || token !== 'undefined') {
         headers.set('Authorization', `Bearer ${token}`)
         return headers
@@ -14,7 +13,5 @@ export const apiSlice = createApi({
     },
   }),
   tagTypes: ['login', 'signup', 'category', 'contact'],
-
-  // }),
   endpoints: () => ({}),
 })

@@ -1,14 +1,12 @@
 'use client'
-
 import React from 'react'
-import { Formik, Field, Form, FormikHelpers } from 'formik'
+import { Formik, Form } from 'formik'
 import InputFeild from './InputFeild'
 import * as Yup from 'yup'
 import { useAddContactMutation } from '@/redux/features/api/contact'
 
 export default function ContactForm() {
-  const [addContact, { isError, isLoading, error, isSuccess }] =
-    useAddContactMutation()
+  const [addContact, { isLoading }] = useAddContactMutation()
   const ContactSchemaValidation = Yup.object().shape({
     name: Yup.string()
       .min(2, 'Too Short!')
@@ -37,10 +35,7 @@ export default function ContactForm() {
         }}
         onSubmit={(values: Values, { resetForm }) => {
           addContact(values)
-          // if (isSuccess) {
           resetForm()
-          // }
-          console.log(values)
         }}
       >
         {({ errors, touched, values, handleChange }) => (

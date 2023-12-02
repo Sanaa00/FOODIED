@@ -1,22 +1,18 @@
 'use client'
 import React, { useEffect } from 'react'
 import InputFeild from '../component/InputFeild'
-import { Form, Formik, useFormik } from 'formik'
+import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { useLoginMutation } from '@/redux/features/api/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addUser } from '@/redux/features/api/userSlice'
 function Page() {
   const router = useRouter()
   const dispatch = useDispatch()
-  const user = useSelector(state => state.user.user)
-  // console.log('userrrrrrrrrrrrrrr', user)
-
   const [login, { data: loginData, isError, isLoading, isSuccess, error }] =
     useLoginMutation()
-  // console.log('here login', isError, error)
   const loginSchemaValidation = Yup.object().shape({
     password: Yup.string().min(6).required('Required'),
     username: Yup.string().required('Required'),
@@ -87,12 +83,11 @@ function Page() {
               >
                 {errors.password}
               </div>
-              {error?.data?.message === 'Invalid credentials' && (
-                <div className='text-xs text-red-400 flex justify-start w-full duration-500 transition'>
-                  password or username incorrect{' '}
+              {error && 'data' in error ? (
+                <div className='text-xs text-red-400 flex w-full duration-500 transition'>
+                  User already exists
                 </div>
-              )}
-
+              ) : null}
               <div className='text-sm w-full text-start'>
                 do you have account ? <Link href='signUp'>signup</Link>
               </div>
@@ -108,8 +103,6 @@ function Page() {
         </Formik>
       </div>
     </div>
-
-    // </div>
   )
 }
 

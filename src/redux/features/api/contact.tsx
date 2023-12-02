@@ -9,18 +9,7 @@ const ContactApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['contact'],
     }),
-    //     signup: builder.mutation({
-    //       query: body => ({
-    //         url: 'http://localhost:4000/api/user/signup',
-    //         method: 'POST',
-    //         body: body,
-    //       }),
-    //       invalidatesTags: ['signup'],
-    //     }),
   }),
 })
 
-export const {
-  useAddContactMutation,
-  // useSignupMutation
-} = ContactApi
+export const { useAddContactMutation } = ContactApi

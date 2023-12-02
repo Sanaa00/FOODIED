@@ -1,21 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { addToOrder } from '@/redux/features/orderSlice'
 import emptyphoto from '../../../public/images/Pasta-bro.png'
-
 import Starts from './Starts'
 import Image from 'next/image'
-function ItemCard({ food }) {
-  const dispatch = useDispatch()
-  const [orderExist, setOrderExist] = useState<boolean>(false)
-  console.log('food', food)
+
+function ItemCard({ allFood }: Food) {
   return (
     <>
-      {' '}
       <div className='w-full h-full flex justify-center items-center'>
-        {food?.data?.fetchedFood.length === 0 ? (
+        {allFood?.data?.fetchedFood.length === 0 ? (
           <Image
             src={emptyphoto}
             width={500}
@@ -24,7 +17,7 @@ function ItemCard({ food }) {
           />
         ) : (
           <div className='my-5 grid grid-cols-3 gap-5'>
-            {food?.data?.fetchedFood?.map(dish => {
+            {allFood?.data?.fetchedFood?.map(dish => {
               return (
                 <div
                   key={dish._id}
@@ -52,10 +45,7 @@ function ItemCard({ food }) {
                       <p className='text-black border border-black rounded-full py-2 w-24 text-center '>
                         {dish.price} 000
                       </p>
-                      <button
-                        onClick={() => dispatch(addToOrder(dish))}
-                        className='px-3 py-1 bg-orange hover:shadow-md hover:bg-opacity-60 duration-500 hover:duration-500 hover:ease-in-out text-white rounded-full'
-                      >
+                      <button className='px-3 py-1 bg-orange hover:shadow-md hover:bg-opacity-60 duration-500 hover:duration-500 hover:ease-in-out text-white rounded-full'>
                         Order Now
                       </button>
                     </div>

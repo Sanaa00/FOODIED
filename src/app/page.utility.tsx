@@ -4,7 +4,7 @@ import { TbTruckDelivery } from 'react-icons/tb'
 import chef1 from '../../public/images/chef1.png'
 import chef2 from '../../public/images/chef2.png'
 import chef3 from '../../public/images/chef3.png'
-import image2 from '../../public/images/homeimage2.png'
+
 export const services = [
   {
     id: 1,

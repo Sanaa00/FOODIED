@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import { Form, Formik, useFormik } from 'formik'
+import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import InputFeild from '../component/InputFeild'
 import { useSignupMutation } from '@/redux/features/api/auth'
@@ -11,9 +11,8 @@ function Page() {
   const dispatch = useDispatch()
   const router = useRouter()
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [signup, { data: signupData, isLoading, isError, error, isSuccess }] =
+  const [signup, { data: signupData, isError, error, isSuccess }] =
     useSignupMutation()
-  // console.log(signupData, isLoading, isError, error)
   const signUpSchemaValidation = Yup.object().shape({
     email: Yup.string().email().required('Required'),
     firstName: Yup.string().required('Required'),
@@ -48,7 +47,6 @@ function Page() {
             validationSchema={signUpSchemaValidation}
             initialValues={initialValues}
             onSubmit={values => {
-              // console.log(values, error)
               signup(values)
             }}
           >
@@ -136,11 +134,12 @@ function Page() {
                 >
                   {errors.password}
                 </div>
-                {error?.data?.message === 'Username already exists' && (
+                {error && 'data' in error ? (
                   <div className='text-xs text-red-400 flex w-full duration-500 transition'>
                     User already exists
                   </div>
-                )}
+                ) : null}
+
                 <button
                   type='submit'
                   className='mt-5 px-6 py-2 bg-orange text-white rounded-full duration-500 hover:duration-500 hover:ease-in-out hover:bg-opacity-60 hover:shadow-md'
