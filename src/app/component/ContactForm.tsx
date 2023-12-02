@@ -4,10 +4,13 @@ import React from 'react'
 import { Formik, Field, Form, FormikHelpers } from 'formik'
 import InputFeild from './InputFeild'
 import * as Yup from 'yup'
+import { useAddContactMutation } from '@/redux/features/api/contact'
 
 export default function ContactForm() {
+  const [addContact, { isError, isLoading, error, isSuccess }] =
+    useAddContactMutation()
   const ContactSchemaValidation = Yup.object().shape({
-    fullName: Yup.string()
+    name: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('Required'),
@@ -27,32 +30,36 @@ export default function ContactForm() {
       <Formik
         validationSchema={ContactSchemaValidation}
         initialValues={{
-          fullName: '',
+          name: '',
           email: '',
           subject: '',
           message: '',
         }}
-        onSubmit={(values: Values) => {
-          // console.log(values)
+        onSubmit={(values: Values, { resetForm }) => {
+          addContact(values)
+          // if (isSuccess) {
+          resetForm()
+          // }
+          console.log(values)
         }}
       >
         {({ errors, touched, values, handleChange }) => (
           <Form className='flex flex-col items-center'>
             <InputFeild
               onChange={handleChange}
-              value={values.fullName}
-              id='fullName'
-              name='fullName'
+              value={values.name}
+              id='name'
+              name='name'
               placeholder='Your name'
               type='text'
-              htmlFor='fullName'
+              htmlFor='name'
             />
             <div
               className={`${
-                errors.fullName && touched.fullName ? 'block' : ' hidden'
+                errors.name && touched.name ? 'block' : ' hidden'
               } text-xs text-red-400 flex justify-start w-full duration-500 transition`}
             >
-              {errors.fullName}
+              {errors.name}
             </div>
             <InputFeild
               onChange={handleChange}
@@ -65,7 +72,7 @@ export default function ContactForm() {
             />
             <div
               className={`${
-                errors.fullName && touched.fullName ? 'block' : 'hidden'
+                errors.email && touched.email ? 'block' : 'hidden'
               } text-xs text-red-400 flex justify-start w-full duration-500 transition`}
             >
               {errors.email}
@@ -81,7 +88,7 @@ export default function ContactForm() {
             />
             <div
               className={`${
-                errors.fullName && touched.fullName ? 'block' : 'hidden'
+                errors.subject && touched.subject ? 'block' : 'hidden'
               } text-xs text-red-400 flex justify-start w-full duration-500 transition`}
             >
               {errors.subject}
@@ -97,7 +104,7 @@ export default function ContactForm() {
             />
             <div
               className={`${
-                errors.fullName && touched.fullName ? 'block' : 'hidden'
+                errors.message && touched.message ? 'block' : 'hidden'
               } text-xs text-red-400 flex justify-start w-full duration-500 transition`}
             >
               {errors.message}
@@ -105,6 +112,7 @@ export default function ContactForm() {
 
             <button
               type='submit'
+              disabled={isLoading}
               className='mt-5 px-6 py-2 bg-orange text-white rounded-full duration-500 hover:duration-500 hover:ease-in-out hover:bg-opacity-60 hover:shadow-md'
             >
               Submit

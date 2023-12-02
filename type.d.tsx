@@ -65,7 +65,7 @@ type categoryProp = {
   }
 }
 interface Values {
-  fullName: string
+  name: string
   message: string
   email: string
   subject: string
