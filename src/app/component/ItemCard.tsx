@@ -1,10 +1,22 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import { useGetCurrentUserQuery } from '@/redux/features/api/auth'
 import emptyphoto from '../../../public/images/Pasta-bro.png'
 import Starts from './Starts'
 import Image from 'next/image'
+import { useAddContactMutation } from '@/redux/features/api/contact'
+import { useGetCartBYUserQuery } from '@/redux/features/api/cart'
 
 function ItemCard({ allFood }: Food) {
+  const { data: currentUser } = useGetCurrentUserQuery()
+  const [addToCart] = useAddContactMutation()
+  const userId = currentUser?.user?._id
+  const { data: usercard } = useGetCartBYUserQuery({ userId })
+  console.log('user card', usercard)
+  const addToCartHandler = (productId: string) => {
+    addToCart({ productId, userId })
+  }
+  console.log('curent user', currentUser, userId)
   return (
     <>
       <div className='w-full h-full flex justify-center items-center'>
@@ -45,7 +57,10 @@ function ItemCard({ allFood }: Food) {
                       <p className='text-black border border-black rounded-full py-2 w-24 text-center '>
                         {dish.price} 000
                       </p>
-                      <button className='px-3 py-1 bg-orange hover:shadow-md hover:bg-opacity-60 duration-500 hover:duration-500 hover:ease-in-out text-white rounded-full'>
+                      <button
+                        onClick={() => addToCartHandler(dish._id)}
+                        className='px-3 py-1 bg-orange hover:shadow-md hover:bg-opacity-60 duration-500 hover:duration-500 hover:ease-in-out text-white rounded-full'
+                      >
                         Order Now
                       </button>
                     </div>

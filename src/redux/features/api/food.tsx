@@ -8,6 +8,7 @@ const foodApi = apiSlice.injectEndpoints({
           method: 'GET',
         }
       },
+      providesTags: ['food'],
     }),
   }),
 })

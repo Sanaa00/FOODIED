@@ -5,9 +5,15 @@ import React from 'react'
 import userImage from '../../../public/images/user.png'
 import { HiOutlineShoppingBag } from 'react-icons/hi'
 import { useSelector } from 'react-redux'
+// import { useGetAllCategoryQuery } from '@/redux/features/api/category'
+// import { useGetCurrentUserQuery } from '@/redux/features/api/auth'
 
 function Navbar() {
   const { order } = useSelector((state: RootState) => state?.order?.order)
+  // const user = useSelector(state: => state.user.user)
+  // const { data: currentUser } = useGetCurrentUserQuery()
+  // console.log('curent user', currentUser)
+  // console.log('user', user)
   return (
     <div className='fixed w-screen bg-white/80 z-50'>
       <nav className='flex justify-between items-center lg:mx-36 py-6 '>

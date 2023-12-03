@@ -38,6 +38,11 @@ function Page() {
   if (loginData && isSuccess) {
     router.push('/home')
   }
+  useEffect(() => {
+    if (localStorage.getItem('user_data')) {
+      dispatch(addUser(loginData?.data))
+    }
+  }, [dispatch, loginData?.data])
   return (
     <div className='min-h-screen flex flex-col justify-center items-center  w-full'>
       <div className=' bg-gray-100 shadow bg-opacity-30 bg-blur flex flex-col items-center p-4 w-fit'>

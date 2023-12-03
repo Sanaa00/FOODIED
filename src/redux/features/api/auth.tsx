@@ -17,7 +17,17 @@ const AuthApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['signup'],
     }),
+    getCurrentUser: builder.query<User, void>({
+      query: () => {
+        return {
+          url: `http://localhost:4000/api/user/login`,
+          method: 'GET',
+        }
+      },
+      providesTags: ['login'],
+    }),
   }),
 })
 
-export const { useLoginMutation, useSignupMutation } = AuthApi
+export const { useLoginMutation, useSignupMutation, useGetCurrentUserQuery } =
+  AuthApi

@@ -49,6 +49,14 @@ interface Food {
     status: string
   }
 }
+interface User {
+  createdAt: string
+  password: string
+  updatedAt: string
+  username: string
+  __v: number
+  _id: string
+}
 // type FoodItem = {
 //   categoryId: {
 //     _id: string
