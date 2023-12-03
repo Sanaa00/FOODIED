@@ -6,9 +6,11 @@ import Starts from './Starts'
 import Image from 'next/image'
 import { useAddContactMutation } from '@/redux/features/api/contact'
 import { useGetCartBYUserQuery } from '@/redux/features/api/cart'
+import { useEffect, useState } from 'react'
 
 function ItemCard({ allFood }: Food) {
   const { data: currentUser } = useGetCurrentUserQuery()
+  // const [user, setUser] = useState(false)
   const [addToCart] = useAddContactMutation()
   const userId = currentUser?.user?._id
   const { data: usercard } = useGetCartBYUserQuery({ userId })
@@ -17,6 +19,7 @@ function ItemCard({ allFood }: Food) {
     addToCart({ productId, userId })
   }
   console.log('curent user', currentUser, userId)
+
   return (
     <>
       <div className='w-full h-full flex justify-center items-center'>

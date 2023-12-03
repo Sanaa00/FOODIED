@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { FaCircleArrowRight, FaCircleArrowLeft } from 'react-icons/fa6'
 import Sidbar from './component/Sidbar'
