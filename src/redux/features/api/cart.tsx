@@ -9,7 +9,7 @@ const ContactApi = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['card'],
     }),
-    getCartBYUser: builder.query({
+    getCartBYUser: builder.query<UserCart, OrderRequestProp>({
       query: ({ userId }) => {
         return {
           url: `http://localhost:4000/api/cart/userCard/${userId}`,

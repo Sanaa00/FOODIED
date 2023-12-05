@@ -3,7 +3,7 @@
 'use client'
 import { deleteInOrder } from '@/redux/features/orderSlice'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import orderPhoto from '../../../public/images/order.svg'
 import Image from 'next/image'
 import TotalPrice from './component/TotalPrice'
@@ -12,19 +12,16 @@ import { useGetCurrentUserQuery } from '@/redux/features/api/auth'
 
 export default function Page() {
   const dispatch = useDispatch()
-
   const { data: currentUser } = useGetCurrentUserQuery()
   const userId = currentUser?.user?._id
-  // const { order } = useSelector((state: RootState) => state?.order.order)
   const { data: order } = useGetCartBYUserQuery({ userId })
-  console.log('order', order)
   return (
     <>
       <div className='lg:mx-36 py-20 min:h-screen'>
         {order?.userCart?.foods?.length !== 0 ? (
           <div className='flex flex-row gap-5 justify-between min:h-screen'>
             <div className='grid grid-cols-3 gap-5 w-3/4 '>
-              {order?.userCart?.foods?.map((dish: Dishes) => {
+              {order?.userCart?.foods?.map(dish => {
                 return (
                   <div
                     key={dish?.productId?._id}
@@ -41,13 +38,15 @@ export default function Page() {
                       <p className='text-lg font-bold text-black text-center '>
                         {dish?.productId?.name}
                       </p>
-                      <p className=' mt-5'>{dish.description}</p>
+                      <p className=' mt-5'>{dish?.productId?.description}</p>
                       <div className='flex justify-between mt-5 '>
                         <p className='text-black border border-black rounded-full py-2 w-24 text-center '>
                           {dish?.productId?.price ? dish?.productId?.price : ''}
                         </p>
                         <button
-                          onClick={() => dispatch(deleteInOrder(dish.id))}
+                          onClick={() =>
+                            dispatch(deleteInOrder(dish?.productId?._id))
+                          }
                           className='px-3 py-1 bg-red-500 text-white rounded-full hover:bg-red-600 hover:duration-500 duration-500 hover:shadow-md'
                         >
                           Remove

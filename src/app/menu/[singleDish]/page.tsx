@@ -20,7 +20,6 @@ function SingleDish({ params }: Props) {
       .then(response => {
         setsingleDish(response.data)
       })
-      .catch(err => {})
   }, [params?.singleDish])
 
   return (

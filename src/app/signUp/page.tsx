@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux'
 function Page() {
   const dispatch = useDispatch()
   const router = useRouter()
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [signup, { data: signupData, isError, error, isSuccess }] =
     useSignupMutation()
   const signUpSchemaValidation = Yup.object().shape({

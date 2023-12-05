@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { FaCircleArrowRight, FaCircleArrowLeft } from 'react-icons/fa6'
 import Sidbar from './component/Sidbar'
@@ -10,12 +10,7 @@ export default function Menu() {
   const [page, setPage] = useState(1)
   const category = useSelector((state: categoryProp) => state.category.category)
   const search = useSelector((state: RootStateSearch) => state.search.search)
-  const {
-    data: allFood,
-    isLoading,
-    isError,
-    error,
-  } = useGetAllFoodQuery({
+  const { data: allFood } = useGetAllFoodQuery({
     search: search,
     page: page,
     limit: 3,

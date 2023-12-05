@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 function TotalPrice() {
   const { order } = useSelector((state: RootState) => state.order.order)
   let sum = 0

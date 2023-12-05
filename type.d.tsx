@@ -50,13 +50,42 @@ interface Food {
   }
 }
 interface User {
-  createdAt: string
-  password: string
-  updatedAt: string
-  username: string
-  __v: number
+  user: {
+    createdAt: string
+    password: string
+    updatedAt: string
+    username: string
+    __v: number
+    _id: string
+  }
+}
+type OrderRequestProp = {
+  userId: string | undefined
+}
+interface CartItem {
+  // Define the properties of a cart item
+  productId: {
+    image: string
+    name: string
+    _id: number
+    description?: string
+    price?: number
+  }
+  quantity: number
   _id: string
 }
+interface UserCart {
+  userCart: {
+    address: string[] // You may want to replace `any` with the actual type of the address
+    foods: CartItem[]
+    status: string
+    totalprice: number[] // You may want to replace `any` with the actual type of the totalprice
+    user: string
+    __v: number
+    _id: string
+  }
+}
+
 // type FoodItem = {
 //   categoryId: {
 //     _id: string
