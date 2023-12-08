@@ -3,7 +3,7 @@ const AuthApi = apiSlice.injectEndpoints({
   endpoints: builder => ({
     login: builder.mutation({
       query: body => ({
-        url: 'http://localhost:4000/api/user/login',
+        url: '/user/login',
         method: 'POST',
         body: body,
       }),
@@ -11,17 +11,18 @@ const AuthApi = apiSlice.injectEndpoints({
     }),
     signup: builder.mutation({
       query: body => ({
-        url: 'http://localhost:4000/api/user/signup',
+        url: '/user/signup',
         method: 'POST',
         body: body,
       }),
       invalidatesTags: ['signup'],
     }),
     getCurrentUser: builder.query<User, void>({
-      query: () => {
+      query: token => {
         return {
-          url: `http://localhost:4000/api/user/login`,
+          url: `/user/login`,
           method: 'GET',
+          headers: { Authorization: `Bearer ${token}` },
         }
       },
       providesTags: ['login'],

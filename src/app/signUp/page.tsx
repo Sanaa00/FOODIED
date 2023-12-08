@@ -29,7 +29,7 @@ function Page() {
   }
 
   useEffect(() => {
-    if (!isError && !error && signupData) {
+    if (!isError && !error && signupData && typeof window !== 'undefined') {
       localStorage.setItem('access_token', signupData?.token)
     }
     dispatch(addUser(signupData?.user))

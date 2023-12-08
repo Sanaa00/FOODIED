@@ -35,7 +35,8 @@ function Navbar() {
               <HiOutlineShoppingBag className='text-white w-5 h-5' />
             </div>
           </Link>
-          {!localStorage.getItem('user_data') ? (
+          {typeof window !== 'undefined' &&
+          !localStorage.getItem('user_data') ? (
             <Link href='login'>login</Link>
           ) : (
             <Link href='/profile'>

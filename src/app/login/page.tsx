@@ -13,6 +13,7 @@ function Page() {
   const dispatch = useDispatch()
   const [login, { data: loginData, isError, isLoading, isSuccess, error }] =
     useLoginMutation()
+  console.log('error', isError, error)
   const loginSchemaValidation = Yup.object().shape({
     password: Yup.string().min(6).required('Required'),
     username: Yup.string().required('Required'),
@@ -24,7 +25,7 @@ function Page() {
   }
 
   useEffect(() => {
-    if (!isError && !error && loginData) {
+    if (!isError && !error && loginData && typeof window !== 'undefined') {
       localStorage.setItem('access_token', loginData?.token)
       localStorage.setItem('user_data', JSON.stringify(loginData.data))
       dispatch(addUser(loginData?.data))
@@ -32,14 +33,18 @@ function Page() {
     dispatch(addUser(loginData?.data))
   }, [dispatch, error, isError, loginData])
 
-  if (localStorage.getItem('access_token')) {
-    router.push('/home')
+  if (typeof window !== 'undefined') {
+    // Code using localStorage
+    if (localStorage.getItem('access_token')) {
+      router.push('/home')
+    }
   }
+
   if (loginData && isSuccess) {
     router.push('/home')
   }
   useEffect(() => {
-    if (localStorage.getItem('user_data')) {
+    if (typeof window !== 'undefined' && localStorage.getItem('user_data')) {
       dispatch(addUser(loginData?.data))
     }
   }, [dispatch, loginData?.data])

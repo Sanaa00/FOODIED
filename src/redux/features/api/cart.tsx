@@ -3,7 +3,7 @@ const ContactApi = apiSlice.injectEndpoints({
   endpoints: builder => ({
     addToCart: builder.mutation({
       query: body => ({
-        url: 'http://localhost:4000/api/order',
+        url: '/order',
         method: 'POST',
         body: body,
       }),
@@ -12,7 +12,7 @@ const ContactApi = apiSlice.injectEndpoints({
     getCartBYUser: builder.query<UserCart, OrderRequestProp>({
       query: ({ userId }) => {
         return {
-          url: `http://localhost:4000/api/cart/userCard/${userId}`,
+          url: `/cart/userCard/${userId}`,
           method: 'GET',
         }
       },
